@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<script>document.fonts.ready.then(() => document.body.classList.add('ready'));</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  background: linear-gradient(135deg, #005c37 0%, #007a4a 40%, #009f61 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'NanumSquareNeoExtraBold', 'NanumSquareNeo', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+.bg-circle1 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -150px; right: -100px;
+}
+.bg-circle2 {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  bottom: -80px; left: -60px;
+}
+.content {
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+}
+.tag {
+  font-family: 'NanumSquareNeo', sans-serif;
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+.title {
+  font-size: 64px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+.title em {
+  color: #7eedb8;
+  font-style: normal;
+}
+.info {
+  font-family: 'NanumSquareNeoBold', 'NanumSquareNeo', sans-serif;
+  font-size: 24px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+}
+.divider {
+  width: 60px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  margin: 24px auto;
+  border-radius: 2px;
+}
+</style>
+</head>
+<body>
+  <div class="bg-circle1"></div>
+  <div class="bg-circle2"></div>
+  <div class="content">
+    <p class="tag">기쁨의교회 · 새생명전도축제</p>
+    <h1 class="title">기쁨의교회가<br><em>당신을 초대합니다</em></h1>
+    <div class="divider"></div>
+    <p class="info">4월 5일 오전 11시, 오후 2시<br>남영캠퍼스 지하1층</p>
+  </div>
+</body>
+</html>
