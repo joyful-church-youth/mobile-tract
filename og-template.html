@@ -1,81 +1,106 @@
 <!DOCTYPE html>
-<html>
+<!-- og-image.png(1200×630) 원본. 헤드리스 브라우저로 1200×630 캡처해서 사용 -->
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
-<script>document.fonts.ready.then(() => document.body.classList.add('ready'));</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="tokens.css">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   width: 1200px;
   height: 630px;
-  background: linear-gradient(135deg, #005c37 0%, #007a4a 40%, #009f61 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'NanumSquareNeoExtraBold', 'NanumSquareNeo', sans-serif;
   overflow: hidden;
   position: relative;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  word-break: keep-all;
 }
-.bg-circle1 {
+.frame {
   position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-  top: -150px; right: -100px;
+  inset: 40px 56px;
+  border-top: 3px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
 }
-.bg-circle2 {
+.fruit {
   position: absolute;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.03);
-  bottom: -80px; left: -60px;
+  right: -40px;
+  top: 40px;
+  width: 520px;
+  height: 520px;
 }
+.p-body { fill: var(--color-accent); }
+.p-leaf { fill: var(--color-leaf); }
+.p-leaf-front { opacity: 0.85; }
+.p-stem { stroke: var(--color-stem); }
 .content {
-  text-align: center;
-  color: #fff;
-  z-index: 1;
+  position: absolute;
+  left: 56px;
+  top: 76px;
 }
-.tag {
-  font-family: 'NanumSquareNeo', sans-serif;
-  font-size: 20px;
-  letter-spacing: 6px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 28px;
-  text-transform: uppercase;
+.church {
+  font-size: 26px;
+  font-weight: 700;
+}
+.date {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-top: 36px;
+  font-family: var(--font-display);
+  line-height: 0.82;
+}
+.date b {
+  font-size: 200px;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  margin-left: -8px;
+}
+.date span {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 2px 14px;
+  border: 3px solid var(--color-ink);
+  background: var(--color-paper);
+  margin-bottom: 22px;
 }
 .title {
-  font-size: 64px;
-  line-height: 1.4;
-  margin-bottom: 24px;
+  margin-top: 40px;
+  font-family: var(--font-display);
+  font-size: 66px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
 }
-.title em {
-  color: #7eedb8;
-  font-style: normal;
-}
-.info {
-  font-family: 'NanumSquareNeoBold', 'NanumSquareNeo', sans-serif;
+.meta {
+  position: absolute;
+  left: 56px;
+  bottom: 56px;
   font-size: 24px;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.8;
-}
-.divider {
-  width: 60px;
-  height: 4px;
-  background: rgba(255,255,255,0.3);
-  margin: 24px auto;
-  border-radius: 2px;
+  color: var(--color-ink-2);
 }
 </style>
 </head>
 <body>
-  <div class="bg-circle1"></div>
-  <div class="bg-circle2"></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="persimmon" viewBox="0 0 200 200">
+      <ellipse class="p-body" cx="100" cy="114" rx="88" ry="80"/>
+      <path class="p-stem" d="M100 38 C100 30 102 22 108 16" fill="none" stroke-width="6" stroke-linecap="round"/>
+      <path class="p-leaf" d="M100 38 C82 24 60 24 44 38 C62 46 84 46 100 38 Z"/>
+      <path class="p-leaf" d="M100 38 C118 24 140 24 156 38 C138 46 116 46 100 38 Z"/>
+      <path class="p-leaf p-leaf-front" d="M100 36 C90 42 90 54 100 60 C110 54 110 42 100 36 Z"/>
+    </symbol>
+  </svg>
+  <div class="frame"></div>
+  <svg class="fruit"><use href="#persimmon"/></svg>
   <div class="content">
-    <p class="tag">기쁨의교회 · 새가족 전도축제</p>
-    <h1 class="title">기쁨의교회가<br><em>당신을 초대합니다</em></h1>
-    <div class="divider"></div>
-    <p class="info">4월 5일 오전 11시, 오후 2시<br>남영캠퍼스 지하1층</p>
+    <p class="church">기쁨의교회</p>
+    <p class="date"><b>11.15</b><span>주일</span></p>
+    <h1 class="title">추수감사 새가족 초청주일</h1>
   </div>
+  <p class="meta">오전 11시 주일예배 · 오후 2시 청년예배 · 남영캠퍼스</p>
 </body>
 </html>
