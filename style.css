@@ -192,9 +192,26 @@ a {
   margin-top: 1.45em;
 }
 
+/* 빈 줄 두 개로 나뉜 단락 묶음 사이 */
+.letter-body .letter-break {
+  margin-top: 2.9em;
+}
+
 .letter-body .letter-close {
-  margin-top: 3.5rem;
   line-height: 1.95;
+}
+
+/* 스크롤 등장: JS가 .reveal을 붙이고, 화면에 들어오면 .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity var(--dur-long) var(--ease-out),
+              transform var(--dur-long) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 .letter-sign {

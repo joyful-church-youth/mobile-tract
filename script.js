@@ -17,7 +17,24 @@
     mark.setAttribute('data-recipient', '');
     mark.textContent = to;
     greeting.replaceChildren(mark, particle(to));
-    document.title = `${to}, 추수감사 새가족 초청주일에 초대합니다`;
+    document.title = `${to}, 새생명 초청 축제에 초대합니다`;
+  }
+
+  // ---- 편지 문단 스크롤 등장 (모션 줄이기 설정이면 건너뜀)
+  const revealTargets = document.querySelectorAll('.letter-body p, .letter-sign');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.2 });
+    revealTargets.forEach((el) => {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
   }
 
   // ---- 클립보드 (카카오톡 인앱 브라우저 대비 fallback 포함)
@@ -68,12 +85,12 @@
     const name = cleanName(form.elements.name.value);
     const url = name ? `${PAGE_URL}?to=${encodeURIComponent(name)}` : PAGE_URL;
     const text = name
-      ? `${salutation(name)}, 11월 15일 추수감사 새가족 초청주일에 초대합니다.`
-      : '11월 15일 추수감사 새가족 초청주일에 초대합니다.';
+      ? `${salutation(name)}, 11월 15일 추수감사주일 새생명 초청 축제에 초대합니다.`
+      : '11월 15일 추수감사주일 새생명 초청 축제에 초대합니다.';
 
     if (navigator.share) {
       try {
-        await navigator.share({ title: '추수감사 새가족 초청주일', text, url });
+        await navigator.share({ title: '새생명 초청 축제', text, url });
         return;
       } catch (err) {
         if (err && err.name === 'AbortError') return;
