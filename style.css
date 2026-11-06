@@ -128,9 +128,11 @@ a {
   height: auto;
 }
 
-.cover-date { width: 60%; }
+/* 줄 간격은 글자 크기와 함께 늘고 줄도록 너비 기준 %로.
+ * 招請 윗획이 가늘어 실제 잉크가 상자보다 ~5px 아래서 시작하므로 위 간격을 조금 덜 줌 → 눈으로 본 간격이 위아래 같게(390px 기준 둘 다 약 13px) */
+.cover-date { width: 60%; margin-bottom: 1.8%; }
 .cover-invitation { width: 94.5%; }
-.cover-name { width: 95%; margin-top: 0.5rem; }
+.cover-name { width: 95%; margin-top: 2.35%; }
 
 .cover-lede {
   margin-top: var(--space-md);
